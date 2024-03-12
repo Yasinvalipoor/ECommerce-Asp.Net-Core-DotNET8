@@ -11,9 +11,9 @@ namespace Store.Controllers
         {
             this.peopleReader = peopleReader;
         }
-        public IActionResult Index(int PageNumber=1)
+        public IActionResult Index(string categoryCustomers = "", int PageNumber=1)
         {
-            return View(peopleReader.GetAll(PageNumber,PageSize));
+            return View(peopleReader.GetAll(PageNumber,PageSize, categoryCustomers));
         }
     }
 }

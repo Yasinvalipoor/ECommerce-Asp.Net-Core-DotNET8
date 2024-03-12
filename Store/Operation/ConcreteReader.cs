@@ -11,7 +11,7 @@ namespace Store.Operation
             this.personDbContext = personDbContext;
         }
 
-        public PageData<Person> GetAll(int PageNumber, int PageSize)
+        public PageData<Person> GetAll(int PageNumber, int PageSize, string categoryCustomers)
         {
             var result = new PageData<Person>()
             {
@@ -21,8 +21,8 @@ namespace Store.Operation
                     PageSize = PageSize
                 }
             };
-            result.Data = personDbContext.People.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();
-            result.PageInfo.TotalCount = personDbContext.People.Count();
+            result.Data = personDbContext.People.Where(c=>string.IsNullOrWhiteSpace(categoryCustomers) || c.categoryCustomers == categoryCustomers).Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();
+            result.PageInfo.TotalCount = personDbContext.People.Where(c => string.IsNullOrWhiteSpace(categoryCustomers) || c.categoryCustomers == categoryCustomers).Count();
             return result;
         }
     }
