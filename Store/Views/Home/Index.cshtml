@@ -1,20 +1,17 @@
 ﻿@using Store.Pager
-@model PageData<Person>
+@model PersonListViewModel
 @{
     ViewBag.Title = "YOo YoO";
 }
 
 
-@foreach (var item in Model.Data)
+@foreach (var item in Model.data.Data)
 {
     @Html.Partial("_ItemsSummery", item)
 }
 
-<br />
-<br />
-
-
-
-<div class="btn-group m-1" page-model="Model.PageInfo" page-action="Index" page-classes-enabled="true" page-class="btn" page-class-normal="btn-success" page-class-selected="btn-success"></div>
+<div id="pager-bottom">
+    <div class="btn-group m-1" page-model="Model.data.PageInfo" page-action="Index" page-classes-enabled="true" page-class="btn" page-class-normal="btn-success" page-class-selected="btn-success"></div>
+</div>
 
 

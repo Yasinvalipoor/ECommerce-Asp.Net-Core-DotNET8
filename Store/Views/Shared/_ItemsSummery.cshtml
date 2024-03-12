@@ -1,11 +1,10 @@
 ﻿@model Person
 
-<div>
-    <h4>
-        <small>@Model.Id </small>
-    </h4>
-    <p>
-        <h1>@Model.FirstName @Model.LastName</h1>
-    </p>
-
+<div style="margin: 10rem 0 ">
+    <h1><small>@Model.Id </small>-
+        <strong>
+            @Model.FirstName @Model.LastName
+        </strong>
+    </h1>
+    <p>Category Customers : <strong>@Model.categoryCustomers</strong></p>
 </div>

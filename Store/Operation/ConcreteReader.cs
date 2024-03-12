@@ -25,5 +25,10 @@ namespace Store.Operation
             result.PageInfo.TotalCount = personDbContext.People.Where(c => string.IsNullOrWhiteSpace(categoryCustomers) || c.categoryCustomers == categoryCustomers).Count();
             return result;
         }
+
+        public List<string> GetAllCategory()
+        {
+            return personDbContext.People.Select(c => c.categoryCustomers).Distinct().ToList();
+        }
     }
 }

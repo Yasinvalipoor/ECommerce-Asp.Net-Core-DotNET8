@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Store.Models;
 using Store.Operation;
 
 namespace Store.Controllers
@@ -13,7 +14,12 @@ namespace Store.Controllers
         }
         public IActionResult Index(string categoryCustomers = "", int PageNumber=1)
         {
-            return View(peopleReader.GetAll(PageNumber,PageSize, categoryCustomers));
+            var viewmodel = new PersonListViewModel
+            {
+                CurrentCategory = categoryCustomers,
+                data = peopleReader.GetAll(PageNumber, PageSize, categoryCustomers)
+            };
+            return View(viewmodel);
         }
     }
 }

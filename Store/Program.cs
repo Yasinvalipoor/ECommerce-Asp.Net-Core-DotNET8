@@ -18,7 +18,9 @@ app.UseRouting();
 
 app.UseEndpoints(endpoints =>
 {
+    endpoints.MapControllerRoute("Pagination", "/{Controller=Home}/{Action=Index}/{categoryCustomers}/Page{PageNumber}");
     endpoints.MapControllerRoute("Pagination","/{Controller=Home}/{Action=Index}/Page{PageNumber}");
+    endpoints.MapControllerRoute("Pagination","/{Controller=Home}/{Action=Index}/{categoryCustomers}");
     endpoints.MapDefaultControllerRoute();
 });
 //کد بالا چنین نقشه‌ای ایجاد میکند

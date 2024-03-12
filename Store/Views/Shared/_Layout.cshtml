@@ -5,11 +5,29 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
     <title>@ViewBag.Title</title>
+   <style>
+        #pager-bottom{
+            display: flex;
+            justify-content: space-evenly;
+            margin-bottom: 2rem;
+        }
+        #sidebar{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: beige;
+        }
+        #container{
+            background-color: #20c99721;
+        }
+   </style>
 </head>
 <body>
     <div class=row>
-        <div class="col-3">sideBox</div>
-        <div class="col-9 container">
+        <div id="sidebar" class="col-3 container ">
+            <vc:side-menu-nav-bar></vc:side-menu-nav-bar>
+        </div>
+        <div id="container" class="col-9 container">
             @RenderBody()
         </div>
     </div>
